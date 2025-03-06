@@ -1,0 +1,305 @@
+@import url(https://fonts.google.com/css?family=Roboto:400,700);
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    z-index:100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1s;
+}
+@keyframes show-content{
+    0%{
+        visibility: hidden;
+        opacity: 0;
+    }
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.navbar .logo{
+    font-size: 30px;
+    font-weight: 700;
+}
+.navbar ul{
+    display: flex;
+}
+.navbar ul li{
+    list-style: none;
+    margin-left: 35px;
+}
+.navbar ul li a{
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+.navbar ul li:hover a,
+.navbar ul li.active a{
+    color: rgba(60, 60, 197, 0.682);
+    
+}
+.home{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+.home-info h1{
+    font-size: 55px;
+}
+.home-info h2{
+    display: inline-block;
+    font-size: 32px;
+    margin: -10px;
+   
+}
+.home-info h2 span{
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px rgba(61, 61, 171, 0.682);
+   animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+@keyframes display-text{
+    25%,
+    100% {
+        display: none;
+        }
+}
+.home-info h2 span::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid rgba(60, 60, 197, 0.682);
+    color: rgba(60, 60, 197, 0.682);
+    white-space: nowrap;
+    overflow: hidden;
+    animation:  fill-text 4s linear infinite;
+}
+@keyframes fill-text{
+    10%,
+    100%{
+        width: 0;
+    }
+    70%,
+    90%{
+        width: 100%;
+    }
+}
+.home-info p{
+    font-size: 13px;
+    margin: 10px 0 25px;
+}
+.home-info .btn-sci{
+    display: inline-flex;
+    align-items: center;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background: rgba(60, 60, 197, 0.682);
+    border: 2px solid rgba(60, 60, 197, 0.682);
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(60, 60, 197, 0.682);
+    font-size: 16px;
+    color: #1f242d;
+    font-weight: 600;
+    transition: .5s;
+}
+.btn:hover{
+    background: transparent;
+    color:rgba(60, 60, 197, 0.682);
+    box-shadow:none;
+}
+.home-info .btn-sci .sci{
+    margin-left: 20px;
+}
+.home-info .btn-sci .sci a{
+    display: inline-flex;
+    padding : 8px;
+    font-size :20px;
+    color: rgba(60, 60, 197, 0.682);
+    margin: 0 8px;
+    transition: .5s;
+    border-radius: 50%;
+}
+.home-info .btn-sci .sci a:hover{
+    background: rgba(60, 60, 197, 0.682);
+    color: #1f242d;
+    box-shadow: 0 0 10px rgba(60, 60, 197, 0.682);
+}
+.home-img .img-box{
+    position: relative;
+   width: 32vw;
+   height: 32vw;
+   border-radius: 50%;
+    overflow: hidden;
+    margin-left: 220px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.home-img .img-box:before,
+.home-img .img-box:after{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent,rgba(31, 31, 136, 0.682) );
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+    
+}
+.home-img .img-box::after{
+    animation-delay: -5s;
+}
+@keyframes rotate-border{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item{
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    border-radius: 50%;
+    border: .1px solid #1f242d;    
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+   
+}
+.home-img .img-box .img-item img{
+    position: absolute;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+}
+
+
+.heading{
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+.heading span{
+    color: rgba(60, 60, 197, 0.682);
+}
+.services-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 9%;
+    margin-bottom: 4rem;
+    color: #fff;
+}
+.services-box{
+    background: #1f242d;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(60, 60, 197, 0.682);
+    transition: .5s;
+}
+.services-box:hover{
+    box-shadow: 0 0 20px rgba(60, 60, 197, 0.682);
+}
+.services-box .icon{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .5s;
+
+}
+
+.services-box .icon i{
+    font-size: 2rem;
+}
+.services-box:hover .icon :not(a i){
+    color: rgba(60, 60, 197, 0.682);
+    
+}
+.services-box .icon a{
+    display: inline-flex;
+    color: #1f242d;
+    background: white;
+    border: #fff;
+    border-radius: 50%;
+    padding: 1rem;
+}
+.services-box .icon a i{
+    font-size: 3rem;
+    color: var(--bg-color);
+    transform: rotate(225deg);
+    border-radius: 50%;
+}
+.services-box .icon a:hover i{
+    transform: rotate(180deg);
+}
+
+.services-box h3{
+    font-size: 1.5rem;
+    margin: .5rem 0;
+    transition: .5s;
+}
+.services-box h3:hover{
+    color: rgba(60, 60, 197, 0.682);
+}
+.footer-info{
+    background: #1f242d;
+    padding: 2rem 0;
+    text-align: center;
+    color: #fff;
+}
+.bars-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+.bars-animation .bar{
+   width: 100%;
+    height: 100%;
+    background: #1f242d;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+@keyframes show-bars{
+    100%{
+        transform: translateY(0%);
+    }
+}
+
